@@ -1,0 +1,58 @@
+<% layout('./layouts/boilerplate') %>
+
+    <div class="row">
+        <h1 class="text-center mb-5">Editar Monster</h1>
+        <div class="col-6 offset-3">
+            <form action="/monsters/<%= monster._id %>?_method=PUT" method="post" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="name">Ingresa nombre del producto</label>
+                    <input class="form-control" type="text" placeholder="Nombre" name="monster[name]" id="name"
+                        value="<%= monster.name%>" >
+                    <div class="invalid-feedback">
+                        Por favor ingrese un nombre.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="img" class="form-label">Seleccione imagen(es) para el producto</label>
+                    <input class="form-control" type="file" name="image" id="img" multiple>
+                  </div>
+
+              <div class="mb-3">
+                  <% monster.img.forEach(function(img,i){ %> 
+                    <img src="<%=img.thumbnail%>" class="img-thumbnail" alt="">
+                    <div class="form-check-inline">
+                     <input type="checkbox" id="image-<%= i%>" name="deleteImages[]" value="<%=img.filename%>">
+                    </div>
+                    <label for="image-<%= i%>">¿Eliminar?</label>
+                    <% }) %> 
+              </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="price" id="price-label">Ingresa un precio para el producto</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">$</span>
+                        <input type="text" class="form-control" name="monster[price]" placeholder="0.00"
+                            aria-label="price" aria-describedby="price-label" value="<%= monster.price%>" required>
+                        <div class="invalid-feedback">
+                            Por favor ingrese un precio.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="discount">Ingresa un descuento para el producto</label>
+                    <input class="form-control" type="text" placeholder="Descuento" name="monster[discount]"
+                        id="discount" value="<%= monster.discount%>" required>
+                    <div class="invalid-feedback">
+                        Por favor ingrese un descuento.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-info">Actualizar Monster</button>
+                </div>
+
+            </form>
+            <a href="/monsters/<%= monster._id %>">Volver</a>
+
+        </div>
+    </div>

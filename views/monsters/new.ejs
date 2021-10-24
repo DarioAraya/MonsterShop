@@ -1,0 +1,55 @@
+<% layout('./layouts/boilerplate') %>
+    <div class="row">
+        <h1 class="text-center mb-5">Agregar nueva Monster</h1>
+        <div class="col-6 offset-3">
+            <form action="/monsters" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="name">Ingresa nombre del producto</label>
+                    <input class="form-control" type="text" placeholder="Nombre" name="monster[name]" id="name"
+                        required autofocus>
+                    <div class="invalid-feedback">
+                        Por favor ingrese un nombre.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="img" class="form-label">Seleccione imagen(es) para el producto</label>
+                    <input class="form-control" type="file" name="image" id="img" multiple>
+                </div>
+
+                <!--  <div class="mb-3">
+                    <label class="form-label" for="img">Ingresa una imagen del producto</label>
+                    <input type="file" class="form-control" name="monster[img]" id="img" required>
+                    <div class="invalid-feedback">
+                        Por favor ingrese una imagen.
+                      </div>
+                </div>-->
+
+                <div class="mb-3">
+                    <label class="form-label" for="price" id="price-label">Ingresa un precio para el producto</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">$</span>
+                        <input type="text" class="form-control" name="monster[price]" placeholder="0.00"
+                            aria-label="price" aria-describedby="price-label" required>
+                        <div class="invalid-feedback">
+                            Por favor ingrese un precio.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="discount">Ingresa un descuento para el producto</label>
+                    <input class="form-control" type="text" placeholder="Descuento" name="monster[discount]"
+                        id="discount" required>
+                    <div class="invalid-feedback">
+                        Por favor ingrese un descuento.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-info">Agregar Monster</button>
+                </div>
+
+            </form>
+            <a href="/monsters">Volver al catalogo</a>
+
+        </div>
+    </div>

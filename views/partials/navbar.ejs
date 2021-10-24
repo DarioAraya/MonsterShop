@@ -1,0 +1,26 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"> <img src="https://res.cloudinary.com/dk77zubhw/image/upload/v1634842338/monsterShop/hmylbzqqvjdrneydvo6p.png" alt="" id="logo"> Monster Shop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse row" id="navbarNav">
+            <div class="navbar-nav col-6">
+                <a class="nav-link active ms-2 " href="/">Inicio</a>
+                <a class="nav-link" href="/monsters/">Catalogo</a>
+                <% if(currentUser && currentUser.admin===true) {%>
+                <a class="nav-link" href="/monsters/new">Nuevo producto</a>
+                <% } %> 
+            </div>
+            <div class="navbar-nav col-6 d-flex justify-content-end">
+                <% if(!currentUser) {%>
+                    <a class="nav-link" href="/login">Iniciar sesión</a>
+                    <a class="nav-link" href="/register">Regístrate</a>
+                    <%}else{ %>
+                        <a class="nav-link" href="/logout">Cerrar sesión</a>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,25 @@
+#star-rate{
+    color: #0dcaf0;
+}
+
+#alerta-success{
+    background-color: #0dcaf0c0;
+}
+
+#img-details{
+    width: 350px;
+}
+
+#logo{
+    width: 35px;
+}
+
+#container{
+    max-width: 2520px;
+}
+
+
+
+#tachado {
+    text-decoration: line-through;
+}

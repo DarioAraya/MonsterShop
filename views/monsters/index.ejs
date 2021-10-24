@@ -1,0 +1,43 @@
+<% layout('./layouts/boilerplate') %>
+
+
+  <!-- Funcion para reducir un array de letas -->
+  <% function limitePalabra(nombre) { let nuevaPalabra='' ; if (nombre.length> 14) {
+    for (let i = 0; i < 14; i++) { nuevaPalabra +=nombre[i]; } nuevaPalabra +="..." ; return nuevaPalabra } else {
+      return nombre; } }%>
+
+      <% function precioTotal(precio,descuento) { let total=0; total=precio * descuento / 100; total=Math.floor(precio -
+        total); return total; }%>
+
+
+        <div class="row offset-md-1">
+          
+          <% for(let mon of monsters){ %>
+
+            <div class="card text-center col-2" style="width: 18rem;" id="carta">
+              <a href="/monsters/<%=mon._id%>">
+              
+                  <img class="card-img-top" src="<%= mon.img[0].url%>" alt="Card image cap">
+
+              </a>
+              <div>
+                <h5 class="card-title"><b>
+                    <%= limitePalabra(mon.name).toUpperCase()%>
+                  </b></h5>
+
+              </div>
+
+              <b>
+                $<%= precioTotal(mon.price, mon.discount) %>
+              </b>
+
+              <div>
+                <a href="#" class="btn btn-info" id="btnComprar">Comprar</a>
+              </div>
+
+
+            </div>
+
+            <% } %>
+
+        </div>
