@@ -18,7 +18,12 @@
     max-width: 2520px;
 }
 
-
+#btnComprar{
+    
+    width: 250px;
+   margin-bottom: 10px;
+       
+   }
 
 #tachado {
     text-decoration: line-through;
@@ -52,10 +57,5 @@
   
 }
 
-#btnComprar{
-    
- width: 250px;
-margin-bottom: 10px;
-    
-}
+
 }
