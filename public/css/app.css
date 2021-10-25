@@ -24,5 +24,31 @@
     text-decoration: line-through;
 }
 
-
+@media (max-width: 767px){
+.titulo{
+    font-size: 19px;
+}
+.texto{
+    font-size: 15px;
+}
+.texto2{
+    font-size: 12px;
+}
+.texto3{
+    font-size: 15px;
+}
+.texto4{
+    font-size: 12px;
+}
+.texto5{
+    font-size: 14px;
+}
+.texto6{
+    font-size: 10px;
+    width: 100px;
+}
+.texto7{
+    font-size: 10px;
+  
+}
 }

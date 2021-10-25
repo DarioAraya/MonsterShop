@@ -44,12 +44,12 @@
                       
 
                             <div class="card-body">
-                                <h5 class="card-title">
+                                <h5 class="card-title titulo">
                                     <%= monster.name.toUpperCase() %>
                                 </h5>
-                                <p class="card-text">
+                                <p class="card-text texto">
                                     <% if(monster.discount> 0) {%>
-                                        <span id="tachado">$<%= monster.price%></span>
+                                        <span id="tachado">$<%= monster.price%></p></span>
                                         <% } %>
                                             $<%= precioTotal(monster.price, monster.discount) %>
                                 </p>
@@ -57,16 +57,16 @@
 
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item text-muted">Descuento: <%= monster.discount%>%</li>
+                                <li class="list-group-item text-muted texto2">Descuento: <%= monster.discount%>%</li>
                             </ul>
                             <% if(currentUser && currentUser.admin===true) {%>
-                                <div class="card-body">
+                                <div class="card-body testeo">
 
-                                    <a class="card-link btn btn-info"
+                                    <a class="card-link btn btn-info btn-block texto6"
                                         href="/monsters/<%=monster._id%>/edit">Modificar</a>
                                     <form class="d-inline" action="/monsters/<%=monster._id%>?_method=DELETE"
                                         method="POST">
-                                        <button class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg"
+                                        <button class="btn btn-danger btn-block texto6"><svg xmlns="http://www.w3.org/2000/svg"
                                                 width="16" height="16" fill="currentColor" class="bi bi-trash"
                                                 viewBox="0 0 16 16">
                                                 <path
@@ -86,7 +86,7 @@
             
             <div class="col-6">
                 <% if(currentUser) {%>
-                    <h2>Escribir opinión de este producto</h2>
+                    <h2 class="texto3">Escribir opinión de este producto</h2>
                     <form action="/monsters/<%=monster._id%>/reviews" method="post" class="mb-3 validated-form"
                         novalidate>
                         <div class="mb-3">
@@ -105,12 +105,12 @@
                                 <label for="first-rate5" title="Amazing">5 stars</label>
                             </fieldset>
 
-                            <label for="body">Agregar una reseña escrita</label>
+                            <label for="body" class="texto4">Agregar una reseña escrita</label>
                             <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3"
                                 required></textarea>
                             <div class="valid-feedback"></div>
                         </div>
-                        <button class="btn btn-info">Enviar</button>
+                        <button class="btn btn-info texto7">Enviar</button>
                     </form>
                     <% } %>
                         <% for(let review of monster.reviews) {%>
@@ -124,36 +124,36 @@
                                                     Rated: <%= review.rating %> stars
                                                 </p>
                                             </h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">
+                                            <h6 class="card-subtitle mb-2 text-muted texto5">
                                                 <%= review.author.username %>
                                             </h6>
                                         </div>
-                                        <div class="col-6">
-                                            <% if(currentUser && review.author.equals(currentUser._id)){ %>
-                                                <form
-                                                    action="/monsters/<%=monster._id%>/reviews/<%=review._id%>?_method=DELETE"
-                                                    method="POST" class="d-flex justify-content-end">
-                                                    <button class="btn btn-sm btn-danger">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                                                            <path fill-rule="evenodd"
-                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                                                        </svg>
-                                                    </button>
-                                                </form>
-                                                <% } %>
-                                        </div>
+                                      
 
 
                                     </div>
-                                    <div class="col-12">
-                                        <p class="card-text">
+                                    <div class="col-7">
+                                        <p class="card-text texto4">
                                             <%= review.body%>
                                         </p>
                                     </div>
-
+                                    <div class="col-5">
+                                        <% if(currentUser && review.author.equals(currentUser._id)){ %>
+                                            <form
+                                                action="/monsters/<%=monster._id%>/reviews/<%=review._id%>?_method=DELETE"
+                                                method="POST" class="d-flex justify-content-end">
+                                                <button class="btn btn-sm btn-danger">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                        <path fill-rule="evenodd"
+                                                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                            <% } %>
+                                    </div>
                                 </div>
                             </div>
                             <% } %>
